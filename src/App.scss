@@ -248,19 +248,14 @@ header {
     padding-top: 0;
     justify-content: center;
     align-items: center;
-    // width: 100vw;
 
     .name {
-        // color: white;
         font-family: 'Playfair Display', serif;
-        // font-family: 'Comfortaa', cursive;
         text-transform: uppercase;
         font-size: 3em;
         font-weight: 400;
         text-align: center;
-        margin-top: 0;
-        // background: -webkit-linear-gradient(60deg, #e07a5f, #3d405b, #81b29a, $peachy);
-        // background: -webkit-linear-gradient(60deg, white, $darkpeachy, white, $darkpeachy, white);
+        margin-top: -20vh;
         background: -webkit-linear-gradient(60deg, $pink, $navy, $blue, $green, $yellow, $pink);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -268,6 +263,7 @@ header {
         background-position: -100%;
         animation: animatedTitle 4s;
         @media (min-width: $desktop) {
+            margin-top: 0vh;
             flex-direction: row;
             font-size: 5rem;
         }
@@ -334,6 +330,7 @@ header {
     position: relative;
 
     .about-buttons {
+        overflow-y: hidden;
         button {
             @include buttonStyle;
             font-size: 20px;
@@ -369,11 +366,18 @@ header {
         }
 
         p {
-            font-size: 18px;
+            font-size: 16px; 
             text-align: justify;
             @media (min-width: $desktop) {
                 font-size: 16px;
                 width: 40vw;
+            }
+        }
+
+        .short-p {
+            font-size: 18px; 
+            @media (min-width: $desktop) {
+                font-size: 16px;
             }
         }
     
@@ -436,11 +440,11 @@ header {
         grid-gap: 5vh;
         margin-top: 5vh;
         bottom: 5vh;
+        overflow-y: hidden;
         @media (min-width: $desktop) {
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 15vh;
             bottom: 0vh;
-            overflow-y: hidden;
         }
 
         p {
