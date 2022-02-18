@@ -512,6 +512,7 @@ header {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+        padding-bottom: 5vh;
         @media (min-width: $desktop) {
             flex-direction: row;
             justify-content: space-around;
@@ -607,15 +608,14 @@ header {
             max-width: 90vw;
             max-height: 25vh;
             margin-top: 5vh;
-            filter: grayscale(100%);
-            transition: 0.4s;
             @media (min-width: $desktop) {
                 height: 30vh;
                 margin-top: 0;
-            }
-
-            &:hover {
-                filter: none;
+                filter: grayscale(100%);
+                transition: 0.4s;
+                &:hover {
+                    filter: none;
+                }
             }
         }
     }
@@ -772,6 +772,7 @@ header {
                 width: 100%;
                 align-self: flex-end;
                 transition: 0.4s;
+                overflow-y: hidden;
 
                 &:hover,
                 &:focus {
