@@ -8,6 +8,7 @@
     margin: 0;
     padding: 0;
     cursor: none;
+    overflow-x: hidden;
 }
 
 body {
@@ -29,14 +30,19 @@ body {
 
     section {
         height: 110vh;
-        width: 90vw;
-        margin: 0 5vw;
+        width: 80vw;
+        margin: 0 10vw;
         z-index: 1;
+        padding-top: 12vh;
         @media (min-width: $desktop) {
             width: 60vw;
             margin: 0 20vw;
             padding-top: 20vh;
-        }    
+        }
+
+        // > * {
+        //     overflow-y: hidden;
+        // }
     }
 
     h1 {
@@ -161,22 +167,24 @@ header {
             top: 0;
             height: 100vh;
             width: 100vw;
-            background-color: white;
+            background-color: $backgroundColor;
             color: white;
             z-index: 1;
             overflow: none;
 
             ul {
-                background-color: white;
+                background-color: $backgroundColor;
                 height: 100vh;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
-            }
-            
-            a, 
-            button {
-                color: white;
+                align-items: center;
+                
+                a, 
+                button {
+                    color: white;
+                    margin: 0;
+                }
             }
         }
     }
@@ -208,7 +216,7 @@ header {
         a {
             text-decoration: none;
             color: white;
-            padding-bottom: 2px;
+            // padding-bottom: 2px;
             transition: 0.4s;
             &:hover {
                 @media (min-width: $desktop) {
@@ -238,6 +246,7 @@ header {
     padding-top: 0;
     justify-content: center;
     align-items: center;
+    // width: 100vw;
 
     .name {
         // color: white;
@@ -316,15 +325,6 @@ header {
             color: $blue;
         }
     }
-
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-        } 
-        100% {
-            opacity: 1;
-        }
-    }
 }
 
 #about {
@@ -335,7 +335,7 @@ header {
         button {
             @include buttonStyle;
             font-size: 20px;
-            width: 42vw;
+            width: 38vw;
             margin: 2vh 2vw 2vh 0;
             @media (min-width: $desktop) {
                 width: 18vw;
@@ -367,24 +367,24 @@ header {
         }
 
         p {
-            font-size: 12px;
+            font-size: 18px;
             text-align: justify;
             @media (min-width: $desktop) {
                 font-size: 16px;
+                width: 40vw;
             }
         }
     
         img {
             display: none;
-            filter: grayscale(100%);
-            transition: 0.4s;
 
             @media (min-width: $desktop) {
                 display: block;
                 border-radius: 20px;
-                height: 10vh;
                 height: 40vh;
                 margin-left: 4vw;
+                filter: grayscale(100%);
+                transition: 0.4s;
             }
 
             &:hover {
@@ -432,12 +432,13 @@ header {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 5vh;
-        margin-top: 10vh;
+        margin-top: 5vh;
         bottom: 5vh;
         @media (min-width: $desktop) {
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 15vh;
             bottom: 0vh;
+            overflow-y: hidden;
         }
 
         p {
@@ -492,28 +493,47 @@ header {
 
 #projects {
     @include centeredFlexColumn;
-    width: 60vw;
+    width: 80vw;
     height: auto;
     overflow: hidden;
+    margin-bottom: 10vh;
+    @media (min-width: $desktop) {
+        width: 60vw;
+    }
 
     ul {
+        @include centeredFlexColumn;
+        align-items: center;
         margin-top: 10vh;
         list-style-type: none;
     }
 
     li {
-        width: 60vw;
-        height: 50vh;
         display: flex;
-        justify-content: space-around;
+        flex-direction: column-reverse;
         align-items: center;
+        @media (min-width: $desktop) {
+            flex-direction: row;
+            justify-content: space-around;
+            width: 60vw;
+            height: 50vh;
+        }
 
         .project-text {
             display: flex;
             flex-direction: column;
+            // align-items: center;
 
             > * {
-                width: 15vw;
+                width: 90vw;
+                @media (min-width: $desktop) {
+                    width: 15vw;
+                }
+            }
+
+            h3,
+            p {
+                text-align: center;
             }
 
             h3 {
@@ -527,7 +547,11 @@ header {
 
             button {
                 @include buttonStyle;
+                width: 90vw;
                 background-color: lightgrey;
+                @media (min-width: $desktop) {
+                    width: 15vw;
+                }
             }
 
             .source {
@@ -551,30 +575,47 @@ header {
 
         &:nth-child(odd) {
             .project-text {
-                padding: 0 5vw 0 0;
+                @media (min-width: $desktop) {
+                    padding: 0 5vw 0 0;
+
+                    h3,
+                    p {
+                        text-align: left;
+                    }
+                }
             }
         }
 
         &:nth-child(even) {
-            flex-direction: row-reverse;
-            h3,
-            p {
-                text-align: right;
+            @media (min-width: $desktop) {
+                flex-direction: row-reverse;
+
+                h3,
+                p {
+                    text-align: right;
+                }
             }
 
             .project-text {
-                padding: 0 0 0 5vw;
+                @media (min-width: $desktop) {
+                    padding: 0 0 0 5vw;
+                }
             }
         }
 
         img {
-            height: 30vh;
+            max-width: 90vw;
+            max-height: 25vh;
+            margin-top: 5vh;
             filter: grayscale(100%);
             transition: 0.4s;
+            @media (min-width: $desktop) {
+                height: 30vh;
+                margin-top: 0;
+            }
 
             &:hover {
                 filter: none;
-                height: 31vh;
             }
         }
     }
@@ -585,10 +626,12 @@ header {
 
     .contact-form {
         @include centeredFlexColumn;
+        align-self: center;
         padding-top: 0;
-        width: 60vw;
+        width: 80vw;
         @media (min-width: $desktop) {
             padding-top: 5vh;
+            align-self: flex-start;
         }
 
         .single-input {
@@ -612,7 +655,8 @@ header {
                 width: 100%;
                 height: 100%;
                 pointer-events: none;
-                border-bottom: 1px solid white;
+                border-bottom: 1px solid $pink;
+                overflow-y: hidden;
             }
 
             label::after {
@@ -622,8 +666,7 @@ header {
                 bottom: -1px;
                 width: 100%;
                 height: 100%;
-                border-bottom: 3px solid $pink;
-                // transform: translateX(-100%);
+                border-bottom: 2px solid $pink;
             }
 
             .content {
@@ -661,9 +704,9 @@ header {
             margin-top: 5vh;
             width: 60vw;
             background-color: white;
-            // color: $backgroundColor;
             @media (min-width: $desktop) {
                 width: 20vw;
+                transform: translateX(-10vw);
             }
         }
 

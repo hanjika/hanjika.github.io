@@ -9,7 +9,7 @@ import mazeImage from '../assets/maze.png';
 export const projectsdata = [
     {
         title: 'StarTup',
-        description: 'A matchmaking app for entrepreneurs based on astrology. Made for mobile but responsive to desktop.',
+        description: 'A matchmaking app for entrepreneurs based on astrology. Made for mobile but responsive to desktop. Front end developed using React.',
         image: startupImage,
         link: false,
         source: 'https://github.com/hanjika/StarTup',
@@ -17,7 +17,7 @@ export const projectsdata = [
     },
     {
         title: 'Shopya',
-        description: 'A mobile-first E-commerce website that uses the FakeStoreApi.',
+        description: 'A mobile-first E-commerce website that uses the FakeStoreApi. Front end developed using React.',
         image: shopyaImage,
         link: 'https://hanjika.github.io/E-commerce/',
         source: 'https://github.com/hanjika/E-commerce',
@@ -49,7 +49,7 @@ export const projectsdata = [
     },
     {
         title: 'Calculator',
-        description: 'A modern JavaScript calculator with multiple themes. Made using Parcel.',
+        description: 'A simple calculator with multiple themes. A modern JavaScript application made using Parcel.',
         image: calculatorImage,
         link: 'https://hanjika.github.io/calculator/',
         source: 'https://github.com/hanjika/calculator',
